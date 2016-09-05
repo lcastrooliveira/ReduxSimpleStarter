@@ -10,13 +10,8 @@ import React, {Component} from 'react';
 class SearchBar extends Component {
     //every class based component MUST have defined a render() method
     render() {
-        //link event from component to the handler
-        return <input onChange={this.onInputChange}/>;
-    }
-    
-    //to handle an event
-    onInputChange(event) {
-        console.log(event.target.value);
+        //arrow functions clean up the code a lot
+        return <input onChange={event => console.log(event.target.value) }/>;
     }
 }
 
