@@ -4,7 +4,8 @@ import VideoListItem from './video_list_item';
 //access props from a class based component by typing this.props
 const VideoList = (props) => {
     const videoItens = props.videos.map((video) => {
-        return <VideoListItem video={video} />
+        //Add a key to optimize list itens update, use property sent by YT API
+        return <VideoListItem key={video.etag} video={video} />
     });
         
     return (

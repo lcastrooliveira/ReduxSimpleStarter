@@ -31,7 +31,7 @@ class App extends Component {
         return (
         <div>
             <SearchBar />
-            //send properties from parent component to VideoList component
+            {/*send properties from parent component to VideoList component*/}
             <VideoList videos={this.state.videos} />
         </div>
         );    
