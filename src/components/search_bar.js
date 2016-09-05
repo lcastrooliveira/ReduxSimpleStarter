@@ -19,7 +19,7 @@ class SearchBar extends Component {
         //the component and all of its children are called again
         //Function based components don't have a state.
         //Only inside the constructor function whe change the state object like this.
-        this.state = {term: ''};
+        this.state = {term: 'Starting Value'};
     }
     
     //every class based component MUST have defined a render() method
@@ -28,7 +28,8 @@ class SearchBar extends Component {
         //this.state.term = event.target.value -> BAD!!!
         return (
             <div>
-                <input onChange={event => this.setState({term: event.target.value}) }/>
+                <input value={this.state.term}
+                onChange={event => this.setState({term: event.target.value}) }/>
             </div>
         );
     }
