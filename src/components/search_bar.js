@@ -8,10 +8,29 @@ import React, {Component} from 'react';
 
 //Gives access of all functionality from React.Component class
 class SearchBar extends Component {
+    
+    //All Class based components hava a constructor function. It is the first and
+    //only function called automatically when an instance of the component is created.
+    //It is used to setup, intialize variables and states.
+    constructor(props) {
+        super(props);
+        
+        //Defines a state of the object, whenever it changes, the render function of
+        //the component and all of its children are called again
+        //Function based components don't have a state.
+        //Only inside the constructor function whe change the state object like this.
+        this.state = {term: ''};
+    }
+    
     //every class based component MUST have defined a render() method
     render() {
         //arrow functions clean up the code a lot
-        return <input onChange={event => console.log(event.target.value) }/>;
+        //this.state.term = event.target.value -> BAD!!!
+        return (
+            <div>
+                <input onChange={event => this.setState({term: event.target.value}) }/>
+            </div>
+        );
     }
 }
 
