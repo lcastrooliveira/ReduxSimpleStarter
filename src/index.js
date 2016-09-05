@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
@@ -40,9 +41,12 @@ class App extends Component {
     //JSX is a dialect of JS that allows to type HTML inside JS, but the transpiler
     //will convert to ES5 javascript when providing to the browser.
     render() {
+        //Debounced version of the function, using lodash. It sets a limit of when the
+        //function can run, in this case, the function video search will run only after 300ms each time is called
+        const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
         return (
         <div>
-            <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+            <SearchBar onSearchTermChange={videoSearch}/>
             <VideoDetail video={this.state.selectedVideo} />
             {/*send properties from parent component to VideoList component*/}
             <VideoList
