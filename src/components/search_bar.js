@@ -27,7 +27,7 @@ class SearchBar extends Component {
         //arrow functions clean up the code a lot
         //this.state.term = event.target.value -> BAD!!!
         return (
-            <div>
+            <div className="search-bar">
                 <input value={this.state.term}
                 onChange={event => this.setState({term: event.target.value}) }/>
             </div>
