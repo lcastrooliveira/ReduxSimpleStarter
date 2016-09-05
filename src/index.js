@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as keys from './key';
 
 //Create a new component. This component should produce some HTML.
 //const is a keyword in ES6 that is equal a final variable in java, quite similar
