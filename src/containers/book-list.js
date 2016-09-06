@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { selectBook } from '../actions/index';
+import { bindActionCreators } from 'redux';
 
 class BookList extends Component {
     renderList() {
@@ -28,6 +30,15 @@ function mapStateToProps(state) {
     };
 }
 
+//Anything returned from this function will end up as props on the BookList Container
+function mapDispatchToProps(dispatch) {
+    //Whenever selectbook is called, the result should be passed to all
+    //of our reducers.
+    return bindActionCreators({selectBook: selectBook},dispatch);
+}
+
 //Connects the redux to react
 //http://stackoverflow.com/questions/18234491/two-sets-of-parentheses-after-function-call
-export default connect(mapStateToProps)(BookList);
+//Promote BookList from a component to a container - it needs to know
+// about this new dispatch method, selectBook. Make it available
+export default connect(mapStateToProps,mapDispatchToProps)(BookList);
