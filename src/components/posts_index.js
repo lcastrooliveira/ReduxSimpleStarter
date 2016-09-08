@@ -1,5 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default () => {
-    return <div>Just a blog post</div>;
-};
+class PostsIndex extends Component {
+    
+    componentWillMount() {
+        console.log('this would be a good time to call an action to fetch posts');
+    }
+    
+    render() {
+        return (
+            <div>List of blog posts</div>
+        );
+    }
+}
+
+export default PostsIndex;
